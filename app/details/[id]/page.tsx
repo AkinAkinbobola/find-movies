@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getDetails } from "@/app/actions/getDetails";
 import { Genre, MovieDetails, TVDetails } from "@/types";
 import Image from "next/image";
+import moment from "moment";
 
 const DetailsPage = () => {
   const pathname = usePathname();
@@ -56,6 +57,18 @@ const DetailsPage = () => {
     const cast = data?.credits.cast.slice(0, 3).map((c) => c.name);
     return cast?.join(", ");
   };
+
+  const countries = () => {
+    const ctr = data?.production_countries;
+    const ctrJoined = ctr?.map((c) => c.name);
+    return ctrJoined?.join(", ");
+  };
+
+  const formatDate = () => {
+    const date = data?.release_date;
+    return moment(date).format("MMMM D, YYYY");
+  };
+
   const Banner = ({ type }: { type: string | null }) => {
     if (type === "tv") {
       return (
@@ -177,6 +190,8 @@ const DetailsPage = () => {
       const dir = directors();
       const screens = screenplay();
       const cast = stars();
+      const ctr = countries();
+      const date = formatDate();
       return (
         <div className={"flex gap-5"}>
           <img
@@ -191,8 +206,8 @@ const DetailsPage = () => {
             className={"rounded-md object-cover"}
           />
 
-          <div className={"flex flex-col gap-3.5"}>
-            <div className={"flex gap-1.5"}>
+          <div className={"flex flex-col justify-between"}>
+            <div className={"flex gap-3"}>
               {data?.genres.map((genre: Genre) => {
                 return (
                   <div
@@ -216,6 +231,12 @@ const DetailsPage = () => {
 
             <p className={"text-gray-100"}>
               Stars: <span className={"text-white"}>{cast}</span>
+            </p>
+            <p className={"text-gray-100"}>
+              Countries of Origin: <span className={"text-white"}>{ctr}</span>
+            </p>
+            <p className={"text-gray-100"}>
+              Release Date: <span className={"text-white"}>{date}</span>
             </p>
           </div>
         </div>
