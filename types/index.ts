@@ -34,6 +34,13 @@ export type Cast = {
   id: number;
   name: string;
 };
+
+export type Crew = {
+  id: number;
+  job: string;
+  name: string;
+};
+
 export enum MediaType {
   Movie = "movie",
   Person = "person",
@@ -90,6 +97,10 @@ export interface MovieDetails {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  credits: {
+    crew: Crew[];
+    cast: Cast[];
+  };
 }
 
 export interface Genre {
