@@ -1,4 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import FeaturedMovies from "@/components/FeaturedMovies";
+import FeaturedSeries from "@/components/FeaturedSeries";
 
 const Page = () => {
   return (
@@ -6,16 +8,16 @@ const Page = () => {
       <div>
         <h1 className={"text-yellow text-3xl"}>Featured Today</h1>
 
-        <Tabs defaultValue="movies" className="w-full mt-3">
+        <Tabs defaultValue="movies" className="w-full h-full mt-3">
           <TabsList className={"w-full"}>
             <TabsTrigger value="movies">Movies</TabsTrigger>
             <TabsTrigger value="series">Series</TabsTrigger>
           </TabsList>
           <TabsContent value="movies" className={"text-white"}>
-            Make changes to your account here.
+            <FeaturedMovies />
           </TabsContent>
           <TabsContent value="series" className={"text-white"}>
-            Change your password here.
+            <FeaturedSeries />
           </TabsContent>
         </Tabs>
       </div>
