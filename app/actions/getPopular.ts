@@ -1,8 +1,8 @@
 "use server";
 
-export const getPopular = async (type: string) => {
+export const getPopular = async (type: string, page = 1) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/${type}/popular?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/${type}/popular?language=en-US&page=${page}`,
     {
       method: "GET",
       headers: {
@@ -13,5 +13,5 @@ export const getPopular = async (type: string) => {
   );
 
   const data = await response.json();
-  return data.results.slice(0, 20);
+  return data.results;
 };
