@@ -13,7 +13,7 @@ const MovieSearchCard = ({
   date: string;
   id: number;
 }) => {
-  const imageUrl = `https://image.tmdb.org/t/p/original/${poster}`;
+  const imageUrl = `https://image.tmdb.org/t/p/original${poster}`;
   const year = date.split("-")[0];
 
   const [cast, setCast] = useState<Cast[]>();

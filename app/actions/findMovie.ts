@@ -12,5 +12,5 @@ export const findMovie = async (query: string) => {
     },
   );
   const data = await response.json();
-  return data.results;
+  return data.results.slice(0, 5);
 };

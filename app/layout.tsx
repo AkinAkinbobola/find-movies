@@ -5,12 +5,15 @@ import Header from "@/components/Header";
 
 const lato = Lato({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"]
+  weight: ["100", "300", "400", "700", "900"],
 });
 
 export const metadata: Metadata = {
   title: "Find Movies",
   description: "NextJS 14 App to find movies",
+  icons: {
+    icon: "/icons/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -21,8 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lato.className} bg-black container`}>
-      <Header/>
-      {children}
+        <Header />
+        {children}
       </body>
     </html>
   );
