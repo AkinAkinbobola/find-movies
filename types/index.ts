@@ -120,13 +120,13 @@ export interface TVDetails {
   backdrop_path: string;
   created_by: any[];
   episode_run_time: any[];
-  first_air_date: Date;
+  first_air_date: string;
   genres: any[];
   homepage: string;
   id: number;
   in_production: boolean;
   languages: string[];
-  last_air_date: Date;
+  last_air_date: string;
   last_episode_to_air: TEpisodeToAir;
   name: string;
   next_episode_to_air: TEpisodeToAir;
