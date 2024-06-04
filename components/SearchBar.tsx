@@ -6,6 +6,7 @@ import { findMovie } from "@/app/actions/findMovie";
 import MovieSearchCard from "@/components/MovieSearchCard";
 import { useDebounce } from "use-debounce";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Movie } from "@/types";
 
 const SearchBar = () => {
   const [input, setInput] = useState("");
@@ -43,14 +44,18 @@ const SearchBar = () => {
           value={input}
           onChange={handleChange}
           onFocus={() => setShowDropDown(true)}
-          onBlur={() => setShowDropDown(false)}
+          onBlur={() => {
+            setTimeout(() => {
+              setShowDropDown(false);
+            }, 200);
+          }}
         />
       </div>
 
       {showDropDown && (
         <div
           className={
-            "absolute mt-1 w-full overflow-y-auto no-scrollbar max-h-96 bg-gray rounded-md"
+            "absolute mt-1 w-full overflow-y-auto no-scrollbar max-h-96 bg-gray rounded-md z-10"
           }
         >
           <ul className={"text-white"}>

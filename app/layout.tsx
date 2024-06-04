@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lato.className} bg-black container`}>
+      <body className={`${lato.className} bg-black`}>
         <Header />
         {children}
       </body>

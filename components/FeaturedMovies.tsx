@@ -5,6 +5,7 @@ import { getPopular } from "@/app/actions/getPopular";
 import MovieCard from "@/components/MovieCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useInView } from "react-intersection-observer";
+import { Movie } from "@/types";
 
 const FeaturedMovies = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -51,6 +52,8 @@ const FeaturedMovies = () => {
                   title={movie.title}
                   poster={movie.poster_path}
                   score={movie.vote_average}
+                  id={movie.id}
+                  type={"movie"}
                 />
               );
             })}

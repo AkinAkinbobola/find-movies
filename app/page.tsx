@@ -5,7 +5,7 @@ import Upcoming from "@/components/Upcoming";
 
 const Page = () => {
   return (
-    <main className={"mt-10 py-4"}>
+    <main className={"mt-10 py-4 container"}>
       <div>
         <h1 className={"text-yellow text-3xl"}>Featured Today</h1>
 

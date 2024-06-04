@@ -5,6 +5,7 @@ import MovieCard from "@/components/MovieCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useInView } from "react-intersection-observer";
 import { getUpcoming } from "@/app/actions/getUpcoming";
+import { Movie } from "@/types";
 
 const Upcoming = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -51,6 +52,8 @@ const Upcoming = () => {
                   title={movie.title}
                   poster={movie.poster_path}
                   score={movie.vote_average}
+                  id={movie.id}
+                  type={"movie"}
                 />
               );
             })}

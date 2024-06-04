@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getCredit } from "@/app/actions/getCredit";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { Cast } from "@/types";
 
 const MovieSearchCard = ({
   poster,
@@ -13,6 +16,7 @@ const MovieSearchCard = ({
   date: string;
   id: number;
 }) => {
+  const router = useRouter();
   const imageUrl = `https://image.tmdb.org/t/p/original${poster}`;
   const year = date.split("-")[0];
 
@@ -32,7 +36,10 @@ const MovieSearchCard = ({
   };
 
   return (
-    <div className={"flex py-3 px-2 gap-2 hover:bg-hover"}>
+    <div
+      className={"flex py-3 px-2 gap-2 hover:bg-hover"}
+      onMouseDown={() => router.push(`/details/${id}`)}
+    >
       <Image
         src={
           poster

@@ -5,6 +5,7 @@ import { getPopular } from "@/app/actions/getPopular";
 import MovieCard from "@/components/MovieCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useInView } from "react-intersection-observer";
+import { TV } from "@/types";
 
 const FeaturedSeries = () => {
   const [movies, setMovies] = useState<TV[]>([]);
@@ -47,6 +48,8 @@ const FeaturedSeries = () => {
                 title={movie.original_name}
                 poster={movie.poster_path}
                 score={movie.vote_average}
+                id={movie.id}
+                type={"tv"}
               />
             );
           })}
