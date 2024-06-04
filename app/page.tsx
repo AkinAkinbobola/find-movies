@@ -1,10 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import FeaturedMovies from "@/components/FeaturedMovies";
 import FeaturedSeries from "@/components/FeaturedSeries";
+import Upcoming from "@/components/Upcoming";
 
 const Page = () => {
   return (
-    <main className={"mt-10"}>
+    <main className={"mt-10 py-4"}>
       <div>
         <h1 className={"text-yellow text-3xl"}>Featured Today</h1>
 
@@ -20,6 +21,13 @@ const Page = () => {
             <FeaturedSeries />
           </TabsContent>
         </Tabs>
+      </div>
+
+      <div className={"mt-10"}>
+        <h1 className={"text-yellow text-3xl"}>Premieres and announcements</h1>
+        <div className={"mt-3"}>
+          <Upcoming />
+        </div>
       </div>
     </main>
   );
