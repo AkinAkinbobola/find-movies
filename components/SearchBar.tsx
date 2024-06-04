@@ -84,7 +84,7 @@ const SearchBar = () => {
                       <div className={"flex flex-col gap-3"}>
                         <Skeleton className="w-[100px] h-[10px] rounded-md" />
                         <Skeleton className="w-[40px] h-[10px] rounded-md" />
-                        <Skeleton className="w-[400px] h-[10px] rounded-md" />
+                        <Skeleton className="w-[300px] h-[10px] rounded-md hidden md:inline-block" />
                       </div>
                     </div>
                   ))}

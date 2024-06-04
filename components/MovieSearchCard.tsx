@@ -49,7 +49,7 @@ const MovieSearchCard = ({
         <p className={"text-white"}>{title}</p>
         <p className={"text-gray-200"}>{year}</p>
 
-        <p className={"text-sm"}>{castNames()}</p>
+        <p className={"text-sm hidden md:inline-block"}>{castNames()}</p>
       </div>
     </div>
   );
