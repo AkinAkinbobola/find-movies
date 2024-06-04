@@ -11,7 +11,7 @@ const MovieCard = ({
 }) => {
   const imageUrl = `https://image.tmdb.org/t/p/original${poster}`;
   return (
-    <div className={"flex flex-col min-w-[180px]"}>
+    <div className={"flex flex-col min-w-[180px] gap-2"}>
       <div className={"relative"}>
         <img
           src={
@@ -39,7 +39,7 @@ const MovieCard = ({
           <span className={"text-white text-sm"}>{score.toFixed(1)}</span>
         </div>
       </div>
-      <p className={"text-center text-white text-sm mt-2"}>{title}</p>
+      <p className={"text-center text-white text-sm"}>{title}</p>
     </div>
   );
 };

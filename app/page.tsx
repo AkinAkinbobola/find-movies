@@ -13,10 +13,10 @@ const Page = () => {
             <TabsTrigger value="movies">Movies</TabsTrigger>
             <TabsTrigger value="series">Series</TabsTrigger>
           </TabsList>
-          <TabsContent value="movies" className={"text-white"}>
+          <TabsContent value="movies">
             <FeaturedMovies />
           </TabsContent>
-          <TabsContent value="series" className={"text-white"}>
+          <TabsContent value="series">
             <FeaturedSeries />
           </TabsContent>
         </Tabs>
