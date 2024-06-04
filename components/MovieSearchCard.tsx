@@ -13,7 +13,7 @@ const MovieSearchCard = ({
   date: string;
   id: number;
 }) => {
-  const imageUrl = `https://image.tmdb.org/t/p/w500/${poster}`;
+  const imageUrl = `https://image.tmdb.org/t/p/original/${poster}`;
   const year = date.split("-")[0];
 
   const [cast, setCast] = useState<Cast[]>();
@@ -42,14 +42,14 @@ const MovieSearchCard = ({
         alt={`${title} Poster`}
         width={50}
         height={50}
-        className={"rounded-md"}
+        className={"rounded-md object-cover"}
       />
 
       <div className={"flex flex-col gap-1.5"}>
         <p className={"text-white"}>{title}</p>
         <p className={"text-gray-200"}>{year}</p>
 
-        <p>{castNames()}</p>
+        <p className={"text-sm"}>{castNames()}</p>
       </div>
     </div>
   );
