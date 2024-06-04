@@ -2,28 +2,30 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getCredit } from "@/app/actions/getCredit";
 import { useRouter } from "next/navigation";
-import { Cast } from "@/types";
+import { Cast, MediaType } from "@/types";
 
 const MovieSearchCard = ({
   poster,
   title,
   date,
   id,
+  type,
 }: {
-  poster: string;
-  title: string;
-  date: string;
+  poster?: string;
+  title?: string;
+  date?: string;
   id: number;
+  type: MediaType;
 }) => {
   const router = useRouter();
   const imageUrl = `https://image.tmdb.org/t/p/original${poster}`;
-  const year = date.split("-")[0];
+  const year = date!.split("-")[0];
 
   const [cast, setCast] = useState<Cast[]>();
 
   useEffect(() => {
     const fetchCast = async () => {
-      const data = await getCredit(id);
+      const data = await getCredit(id, type);
       setCast(data.slice(0, 3));
     };
     fetchCast();
@@ -37,7 +39,7 @@ const MovieSearchCard = ({
   return (
     <div
       className={"flex py-3 px-2 gap-2 hover:bg-hover"}
-      onMouseDown={() => router.push(`/details/${id}`)}
+      onMouseDown={() => router.push(`/details/${id}?type=${type}`)}
     >
       <Image
         src={

@@ -6,11 +6,11 @@ import { findMovie } from "@/app/actions/findMovie";
 import MovieSearchCard from "@/components/MovieSearchCard";
 import { useDebounce } from "use-debounce";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Movie } from "@/types";
+import { Multi } from "@/types";
 
 const SearchBar = () => {
   const [input, setInput] = useState("");
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<Multi[]>([]);
   const [loading, setLoading] = useState(false);
   const [debouncedInput] = useDebounce(input, 1000);
   const [showDropDown, setShowDropDown] = useState(false);
@@ -62,15 +62,31 @@ const SearchBar = () => {
             {!loading ? (
               movies.length > 0 ? (
                 movies?.map((movie) => {
-                  return (
-                    <MovieSearchCard
-                      key={movie.id}
-                      id={movie.id}
-                      poster={movie.poster_path}
-                      title={movie.title}
-                      date={movie.release_date}
-                    />
-                  );
+                  const type = movie.media_type;
+                  if (type === "movie") {
+                    return (
+                      <MovieSearchCard
+                        key={movie.id}
+                        id={movie.id}
+                        poster={movie.poster_path}
+                        title={movie.title}
+                        date={movie.release_date}
+                        type={type}
+                      />
+                    );
+                  }
+                  if (type === "tv") {
+                    return (
+                      <MovieSearchCard
+                        key={movie.id}
+                        id={movie.id}
+                        poster={movie.poster_path}
+                        title={movie.name}
+                        date={movie.first_air_date}
+                        type={type}
+                      />
+                    );
+                  }
                 })
               ) : (
                 <div className={"py-3 px-2"}>No results found</div>

@@ -1,8 +1,10 @@
 "use server";
 
-export const getCredit = async (id: number) => {
+import { MediaType } from "@/types";
+
+export const getCredit = async (id: number, type: MediaType) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US'`,
+    `https://api.themoviedb.org/3/${type}/${id}/credits?language=en-US'`,
     {
       method: "GET",
       headers: {
