@@ -34,7 +34,9 @@ const SearchBar = () => {
   }, [debouncedInput]);
 
   return (
-    <div className={`flex-grow bg-white rounded-md relative cursor-pointer`}>
+    <div
+      className={`flex-grow bg-white rounded-md relative cursor-pointer w-full`}
+    >
       <div className={"flex py-3 px-2 gap-2"}>
         <Search />
         <input

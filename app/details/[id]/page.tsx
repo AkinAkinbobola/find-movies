@@ -193,7 +193,7 @@ const DetailsPage = () => {
       const ctr = countries();
       const date = formatDate();
       return (
-        <div className={"flex gap-5"}>
+        <div className={"flex flex-col md:flex-row gap-5"}>
           <img
             src={
               imageUrl
@@ -203,11 +203,11 @@ const DetailsPage = () => {
             alt={`Poster`}
             width={250}
             height={200}
-            className={"rounded-md object-cover"}
+            className={"rounded-md object-cover hidden md:inline-block"}
           />
 
           <div className={"flex flex-col justify-between"}>
-            <div className={"flex gap-3"}>
+            <div className={"flex gap-3 flex-wrap"}>
               {data?.genres.map((genre: Genre) => {
                 return (
                   <div
@@ -249,7 +249,7 @@ const DetailsPage = () => {
       <div className={"bg-gray w-full py-20"}>
         <Banner type={type} />
       </div>
-      <div className={"container py-10"}>
+      <div className={"container py-4"}>
         <Content type={type} />
       </div>
     </main>
