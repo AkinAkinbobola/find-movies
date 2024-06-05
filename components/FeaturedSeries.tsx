@@ -9,7 +9,7 @@ import { TV } from "@/types";
 
 const FeaturedSeries = () => {
   const [movies, setMovies] = useState<TV[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [ref, inView] = useInView();
 

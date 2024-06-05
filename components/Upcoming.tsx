@@ -9,7 +9,7 @@ import { Movie } from "@/types";
 
 const Upcoming = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [ref, inView] = useInView();
 
