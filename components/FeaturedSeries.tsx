@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import { getPopular } from "@/app/actions/getPopular";
 import MovieCard from "@/components/MovieCard";
-import { Skeleton } from "@/components/ui/skeleton";
 import { useInView } from "react-intersection-observer";
 import { TV } from "@/types";
+import SkeletonMovieCard from "@/components/SkeletonMovieCard";
 
 const FeaturedSeries = () => {
   const [movies, setMovies] = useState<TV[]>([]);
@@ -58,16 +58,7 @@ const FeaturedSeries = () => {
           </div>
         </div>
       ) : (
-        <div className={"flex overflow-y-auto no-scrollbar gap-5"}>
-          {Array(20)
-            .fill(null)
-            .map((_, i) => (
-              <div className={"flex flex-col gap-2"} key={i}>
-                <Skeleton className={"w-[180px] h-[250px]"} />
-                <Skeleton className={"w-[80px] h-[10px] mx-auto"} />
-              </div>
-            ))}
-        </div>
+        <SkeletonMovieCard />
       )}
     </section>
   );
