@@ -41,7 +41,7 @@ const Banner = ({
               {tvDetails?.vote_average.toFixed(1)}
             </p>
             <p className={"text-gray-200 text-sm text-wrap"}>
-              {tvDetails?.vote_count} ratings
+              {tvDetails?.vote_count} <br /> ratings
             </p>
           </div>
         </div>
