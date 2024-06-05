@@ -45,7 +45,7 @@ const FeaturedMovies = () => {
           <div
             className={"flex items-center overflow-y-auto no-scrollbar gap-5"}
           >
-            {movies.map((movie) => {
+            {movies?.map((movie) => {
               return (
                 <MovieCard
                   key={movie.id}
