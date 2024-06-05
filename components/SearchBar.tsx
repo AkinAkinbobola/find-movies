@@ -35,7 +35,7 @@ const SearchBar = () => {
 
   return (
     <div
-      className={`flex-grow bg-white rounded-md relative cursor-pointer w-full`}
+      className={`flex-grow bg-white rounded-md relative cursor-pointer w-full border-2 ${showDropDown && "border-yellow"}`}
     >
       <div className={"flex py-3 px-2 gap-2"}>
         <Search />
