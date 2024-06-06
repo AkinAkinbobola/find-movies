@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
+import { notFound, usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getDetails } from "@/app/actions/getDetails";
 import { MovieDetails, TVDetails } from "@/types";
@@ -31,6 +31,9 @@ const DetailsPage = () => {
 
     fetchData();
   }, []);
+  if (!(type == "tv" || type == "movie")) {
+    notFound();
+  }
 
   return (
     <main>
