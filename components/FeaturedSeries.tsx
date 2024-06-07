@@ -53,9 +53,7 @@ const FeaturedSeries = () => {
               />
             );
           })}
-          <div ref={ref}>
-            <span className="sr-only">Loading...</span>
-          </div>
+          <div ref={ref} />
         </div>
       ) : (
         <SkeletonMovieCard />
