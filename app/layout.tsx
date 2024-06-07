@@ -15,16 +15,7 @@ export const metadata: Metadata = {
     icon: "/icons/favicon.png",
   },
 };
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      bds: React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-    }
-  }
-}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,10 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <title>Find Movies</title>
-        <bds />
-      </head>
       <body className={`${lato.className} bg-black`}>
         <Header />
         {children}
